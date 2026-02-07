@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Katja Christina Pasternak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+                        url('blog.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            background: #0073a1;
+            color: white;
+            text-decoration: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #0090c7;
+            transform: translateY(-2px);
+        }
+        
+        .lang-switcher {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .lang-btn {
+            background: #265075;
+            color: #e4d671;
+            border: 2px solid #265075;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 0 5px;
+        }
+        
+        .lang-btn:hover {
+            background: #e4d671;
+            color: #265075;
+            border-color: #e4d671;
+        }
+        
+        .lang-btn.active {
+            background: #e4d671;
+            color: #265075;
+            border-color: #e4d671;
+        }
+        
+        .blog-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .blog-box p {
+            margin-bottom: 15px;
+            color: #333;
+            text-align: justify;
+        }
+        
+        .blog-box p:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        .blog-title {
+            color: #0073a1 !important;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: left !important;
+        }
+        
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                background-attachment: scroll;
+            }
+            
+            .blog-box {
+                padding: 25px;
+            }
+            
+            .blog-title {
+                font-size: 1.1rem;
+            }
+            
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .back-link {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="switchLang('de')">DEUTSCH</button>
+            <button class="lang-btn" onclick="switchLang('it')">ITALIANO</button>
+        </div>
+        
+        <!-- Italian Content -->
+        <div id="lang-it" class="lang-content">
+            <div class="blog-box">
+                <p class="blog-title">• Un microfono in chiesa</p>
+                <p>Un amico, visitando il mio sito, mi ha fatto una critica: «Nella parte sui matrimoni parli solo dei matrimoni civili e non anche dei riti religiosi». Lasciando da parte i discorsi filosofici tra lui (cattolico) e me (laica), pensavo subito alle implicazioni concrete della domanda. Anche durante una cerimonia religiosa ci potrebbe essere bisogno di un interprete?</p>
+                <p>Per la parte del matrimonio in chiesa che produce effetti civili, direi proprio di sì: in Italia gli sposi possono scegliere questa possibilità. Per la parte strettamente religiosa non lo so. Non riesco a immaginare un prete che si avvale di un interprete per parlare con gli sposi e con gli ospiti, siano fedeli o meno, ma non mi sento neanche di escludere questo scenario.</p>
+                <p>Un ricordo mi è venuto in mente, ed è un ricordo ricco di emozioni. Nel mese di settembre del 2024, in occasione del Palio dei Cucchi, si è festeggiato il giubileo ventennale del gemellaggio tra Campagnatico, il mio paese, e la città tedesca di Würselen. In quei giorni di festa ho fatto l'interprete per permettere alla delegazione tedesca di capire e farsi capire.</p>
+                <p>La domenica mattina, prima della gara, si è svolta la messa per celebrare il giorno del Palio, con il sindaco di Würselen come ospite d'onore. Davanti all'altare non parlava solo il parroco, il recentemente defunto don Ivano, ma parlavano anche i sindaci di Campagnatico e di Würselen. Tradurre per loro in quell'occasione, davanti alla comunità del paese riunita nel Santuario di Santa Maria, è stata un'esperienza unica per una laica come me, che non si sarebbe mai sognata di parlare con un microfono in una chiesa.</p>
+                <p style="text-align: left; margin-top: 20px;">(Gennaio 2026)</p>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="index.html" class="back-link">← Torna al sito</a>
+            </div>
+        </div>
+        
+        <!-- German Content -->
+        <div id="lang-de" class="lang-content active">
+            <div class="blog-box">
+                <p class="blog-title">• Mit dem Mikrofon in der Kirche</p>
+                <p>Nach seinem Besuch meiner Website erreichte mich die Kritik eines guten Freundes: »Im Abschnitt über die Hochzeiten sprichst du nur von zivilen Eheschließungen, nicht aber von religiösen Riten«. Ganz abgesehen von den philosophischen Diskussionen zwischen ihm (Katholik) und mir (Laizistin) dachte ich sofort an die konkreten Auswirkungen dieser Frage. Kann auch während einer religiösen Zeremonie ein Dolmetscher vonnöten sein?</p>
+                <p>Soweit es den Teil der kirchlichen Hochzeit angeht, der zivilrechtliche Wirkungen entfaltet, ist dies sicher der Fall: In Italien kann sich das Brautpaar für diese Option entscheiden. Soweit es hingegen den rein religiösen Teil angeht, weiß ich nicht so recht. Ich kann mir kaum einen Pfarrer vorstellen, der sich über einen Dolmetscher an die Brautleute oder die Gäste, seien sie gläubig oder nicht, wendet, kann ein solches Szenario aber auch nicht ausschließen.</p>
+                <p>Mir kam eine Erinnerung voller Emotionen in den Sinn. Im September 2024 wurde anlässlich der historisch-folkloristischen Veranstaltung des Palio – eines mit Eseln ausgetragenen Rennens – das zwanzigjährige Jubiläum der Städtepartnerschaft zwischen Campagnatico, meinem Dorf, und Würselen in Deutschland gefeiert. Während dieser Festtage half ich als Dolmetscherin der deutschen Delegation bei der Verständigung.</p>
+                <p>Am Sonntagvormittag vor dem Rennen wurde die Messe gelesen, um den Palio-Tag zu zelebrieren. Ehrengast war der Bürgermeister von Würselen. Vor dem Altar sprachen nicht nur der Gemeindepfarrer, der kürzlich verstorbene Don Ivano, sondern auch die Bürgermeister von Campagnatico und Würselen. Bei diesem Anlass für sie vor der in der Marienkirche versammelten Gemeinde zu dolmetschen, war eine einzigartige Erfahrung für eine Laizistin wie mich. Ich hätte nie gedacht, einmal mit dem Mikrofon in einer Kirche zu sprechen.</p>
+                <p style="text-align: left; margin-top: 20px;">(Januar 2026)</p>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="index.html" class="back-link">← Zurück zur Website</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+            
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
