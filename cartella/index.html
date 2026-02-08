@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katja Christina Pasternak - Consulenza per tedeschi in Italia</title>
+
+    <!-- Open Graph – preview Facebook/social -->
+    <meta property="og:title" content="Katja Christina Pasternak">
+    <meta property="og:description" content="Assistenza tedesca per le vostre necessità in Italia • Deutsche Hilfe für Ihre Anliegen in Italien">
+    <meta property="og:image" content="https://www.katjapasternak.eu/og-image.png?v=3">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.katjapasternak.eu">
+    <meta property="fb:app_id" content="966242223397117">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0073a1 0%, #0090c7 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        
+        /* Hamburger Icon */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+            margin-left: 10px;
+        }
+        
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        /* Menu a tendina nell'header */
+        .header-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            width: 100%;
+            margin-top: 15px;
+            background: rgba(0, 115, 161, 0.95);
+            border-radius: 8px;
+        }
+        
+        .header-menu.active {
+            max-height: 500px;
+        }
+        
+        .header-menu ul {
+            list-style: none;
+            padding: 20px 0;
+            margin: 0;
+        }
+        
+        .header-menu li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .header-menu li:last-child {
+            border-bottom: none;
+        }
+        
+        .header-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 10px;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .header-menu a:hover {
+            color: #e4d671;
+            padding-left: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        /* Logo mobile - nascosto di default */
+        .logo-mobile {
+            display: none;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: #265075;
+            color: #e4d671;
+            border: 2px solid #265075;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: #e4d671;
+            color: #265075;
+            border-color: #e4d671;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(43, 94, 166, 0.6), rgba(43, 94, 166, 0.6)),
+                        url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 3px solid #e4d671;
+            color: white;
+        }
+        
+        .hero-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .hero h2 strong {
+            font-weight: 700;
+            color: #e4d671;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: #f0f0f0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #e4d671;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        /* Sections */
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        /* About section with chi-sono background */
+        #about {
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+                        url('chi-sono.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Services section with borgo background */
+        #services {
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+                        url('servizi.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Testimonials section with testimonianze background */
+        #testimonials {
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+                        url('testimonianze.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Blog section with blog background */
+        #blog {
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+                        url('blog.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Pricing section with tariffe background */
+        #pricing {
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+                        url('tariffe.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Contact section with tramonto-nuvole background */
+        #contact {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+                        url('contatti.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: #0073a1;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #e4d671;
+        }
+        
+        /* About Section */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            align-items: start;
+        }
+        
+        .about-photo {
+            text-align: center;
+        }
+        
+        .about-photo img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border: 4px solid #e4d671;
+        }
+        
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+        }
+        
+        /* Services Section */
+        .services-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(43,94,166,0.2);
+            transition: all 0.3s;
+            border-top: 4px solid #e4d671;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 12px 40px rgba(43,94,166,0.3);
+            border-top-color: #0073a1;
+        }
+        
+        .service-card h3 {
+            color: #0073a1;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .example-box {
+            border-left: 3px solid #e4d671;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+        
+        .example-box strong {
+            color: #0073a1;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .example-box p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-intro {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(43,94,166,0.2);
+            border-top: 4px solid #e4d671;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .contact-item {
+            margin: 25px 0;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item strong {
+            color: #0073a1;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-item a {
+            color: #0073a1;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .contact-item a:hover {
+            color: #e4d671;
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #265075;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        footer p {
+            opacity: 0.9;
+        }
+        
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+
+
+        /* Testimonial Box */
+        .testimonial-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+
+        .testimonial-box p {
+            margin-bottom: 15px;
+            color: #333;
+            text-align: justify;
+        }
+
+
+        .testimonial-box p:last-of-type {
+            margin-bottom: 0;
+        }
+
+
+        .testimonial-box .testimonial-authors {
+            color: #0073a1 !important;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+
+        /* Testimonial intro text */
+        .testimonial-intro {
+            text-align: center;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            /* Fix overflow orizzontale */
+            body {
+                overflow-x: hidden;
+            }
+            
+            * {
+                max-width: 100%;
+            }
+            
+            /* Fix background foto su mobile */
+            section {
+                background-attachment: scroll !important;
+                padding: 40px 0 !important;
+            }
+            
+            /* FOTO DI SFONDO SU MOBILE - Mostra paesaggio invece di cielo */
+            .hero {
+                background-position: center 65% !important;
+            }
+            
+            /* RIDUCO OPACITÀ su mobile per far vedere meglio le foto */
+            #about {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0.70)),
+                                  url('chi-sono.jpg') !important;
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center 70% !important;
+            }
+            
+            #services {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0.70)),
+                                  url('servizi.jpg') !important;
+                background-attachment: scroll !important;
+                background-size: auto !important;
+                background-repeat: repeat !important;
+                background-position: left top !important;
+            }
+            
+            #testimonials {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0.70)),
+                                  url('testimonianze.jpg') !important;
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center 70% !important;
+            }
+            
+            #blog {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0.70)),
+                                  url('blog.jpg') !important;
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center !important;
+            }
+            
+            #pricing {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.70), rgba(255, 255, 255, 0.70)),
+                                  url('tariffe.jpg') !important;
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center !important;
+            }
+            
+            #contact {
+                background-image: linear-gradient(rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.68)),
+                                  url('contatti.jpg') !important;
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center !important;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* Header ottimizzato - grid layout */
+            header {
+                padding: 1rem 0;
+            }
+            
+            .header-content {
+                display: grid;
+                grid-template-columns: auto 1fr auto;
+                grid-template-rows: auto auto;
+                align-items: center;
+                gap: 15px 0;
+                text-align: center;
+            }
+            
+            .header-left {
+                display: contents;
+            }
+            
+            /* Hamburger - in alto a sinistra */
+            .hamburger {
+                grid-column: 1;
+                grid-row: 1;
+                width: 35px;
+                height: 30px;
+                margin-left: 0;
+                align-self: center;
+            }
+            
+            /* Bottoni lingua - in alto a destra */
+            .lang-switcher {
+                grid-column: 3;
+                grid-row: 1;
+                gap: 5px;
+                display: flex;
+            }
+            
+            .lang-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            /* Logo + Nome - affiancati e centrati sotto */
+            .logo {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                justify-self: center;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                width: auto;
+                position: static;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+                position: static;
+            }
+            
+            .logo h1 {
+                font-size: 1.2rem;
+                text-align: center;
+                margin-top: 0;
+            }
+            
+            .logo-mobile {
+                display: none;
+            }
+            
+            /* Menu a tendina */
+            .header-menu {
+                grid-column: 1 / -1;
+                margin-top: 10px;
+            }
+            
+            .header-menu a {
+                padding: 18px 15px;
+                font-size: 1.05rem;
+            }
+            
+            /* Hero ottimizzato */
+            .hero {
+                padding: 50px 0;
+            }
+            
+            .hero-logo {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+                line-height: 1.3;
+                margin-bottom: 15px;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+                margin-top: 10px;
+            }
+            
+            /* Titoli sezioni */
+            h2 {
+                font-size: 1.6rem;
+                margin-bottom: 25px;
+            }
+            
+            h2::after {
+                width: 60px;
+            }
+            
+            /* About section */
+            .about-layout {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .about-photo img {
+                max-width: 200px;
+            }
+            
+            .about-content {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+            
+            .about-content p {
+                margin-bottom: 15px;
+            }
+            
+            /* Services */
+            .services-intro {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .example-box {
+                padding: 12px;
+                margin-top: 12px;
+            }
+            
+            .example-box strong {
+                font-size: 0.9rem;
+            }
+            
+            .example-box p {
+                font-size: 0.9rem;
+            }
+            
+            /* Testimonials */
+            .testimonial-intro {
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+            }
+            
+            .testimonial-box {
+                padding: 25px 20px;
+            }
+            
+            .testimonial-box p {
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+            }
+            
+            /* Contact */
+            .contact-intro {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            
+            .contact-info {
+                padding: 30px 20px;
+            }
+            
+            .contact-item {
+                margin: 20px 0;
+                font-size: 1rem;
+            }
+            
+            .contact-item strong {
+                font-size: 1.1rem;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 25px 0;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-left">
+                    <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div class="logo">
+                        <img src="logo-header.png" alt="Logo" class="logo-img">
+                        <h1>Katja Christina Pasternak</h1>
+                    </div>
+                </div>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="switchLang('de')">DEUTSCH</button>
+                    <button class="lang-btn" onclick="switchLang('it')">ITALIANO</button>
+                </div>
+            </div>
+            <!-- Menu a tendina -->
+            <div class="header-menu" id="navbarMenu">
+                <ul>
+                    <li><a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); document.getElementById('navbarMenu').classList.remove('active'); document.getElementById('hamburgerBtn').classList.remove('active'); return false;">Home</a></li>
+                    <li><a href="#" onclick="scrollToSection('about'); return false;">Chi sono / Über mich</a></li>
+                    <li><a href="#" onclick="scrollToSection('services'); return false;">Servizi / Leistungen</a></li>
+                    <li><a href="#" onclick="scrollToSection('testimonials'); return false;">Recensioni / Referenzen</a></li>
+                    <li><a href="#" onclick="scrollToSection('blog'); return false;">Blog</a></li>
+                    <li><a href="#" onclick="scrollToSection('pricing'); return false;">Tariffe / Preise</a></li>
+                    <li><a href="#" onclick="scrollToSection('contact'); return false;">Contatti / Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ITALIAN VERSION -->
+    <div id="lang-it" class="lang-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <img src="logo-hero.png" alt="Logo" class="hero-logo">
+                <h2><strong>Assistenza tedesca</strong> per le vostre necessità in Italia</h2>
+                <p style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 15px; font-weight: 500;">Deutsche Hilfe für Ihre Anliegen in Italien</p>
+                <p>Risolvo problemi, organizzo e traduco per germanofoni in Italia</p>
+                <p class="subtitle">TRADUZIONI GIURIDICHE (IT) · JURISTISCHE ÜBERSETZUNGEN (DE)</p>
+            </div>
+        </section>
+
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>Chi sono</h2>
+                <div class="about-layout">
+                    <div class="about-photo">
+                        <img src="katja.jpg" alt="Katja Christina Pasternak">
+                    </div>
+                    <div class="about-content">
+                        <p>Vivo in Italia da quasi 30 anni in diverse località. Ho una <strong>formazione giuridica in Germania</strong> (esami di stato tedeschi in Giurisprudenza).</p>
+                        <p>Durante vari periodi di pratica in studi legali in Italia ho cominciato a dedicarmi alla <strong>traduzione di testi giuridici</strong>, settore in cui ho maturato una lunga esperienza. Sono <strong>socia ordinaria AITI</strong> (Associazione Italiana Traduttori e Interpreti).</p>
+                        <p>Ora supporto i germanofoni ad orientarsi in Italia. Sono particolarmente ben collegata qui in <strong>Maremma</strong>, dove vivo da circa 15 anni, ma posso estendere le mie antenne anche in altre regioni.</p>
+                        <p>La mia offerta comprende tutti i servizi linguistici come traduzione e interpretariato, ma anche la risoluzione di problemi molto concreti: come ottengo preventivi da artigiani, a quale agente immobiliare posso affidarmi, dove trovo un buon commercialista?</p>
+                        <p>Grazie alla mia rete professionale, sono in contatto con colleghi traduttori e interpreti qualificati soprattutto in Toscana, ma anche in altre regioni d'Italia e in altre combinazioni linguistiche, per offrire supporto completo anche oltre le mie competenze dirette.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2>I miei servizi</h2>
+                <p class="services-intro">Ho aiutato numerosi clienti in situazioni complesse. Ecco alcuni esempi di cosa potrei fare per voi:</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🏠 La vostra casa in Italia</h3>
+                        <p>L'acquisto e la vendita di immobili si articolano in diverse fasi che coinvolgono una serie di professionisti: agenzie immobiliari, notai, tecnici come geometri o architetti.</p>
+                        <div class="example-box">
+                            <p>• Vi posso supportare nella ricerca dell'immobile e nelle negoziazioni, tradurre gli atti di compravendita e fare l'interprete durante la stipula.</p>
+                            <p style="margin-top: 10px;">• Se l'immobile deve essere ristrutturato, entrano nuovamente in gioco geometri o architetti, ma anche artigiani e funzionari dell'amministrazione comunale. Questi professionisti devono essere coordinati - lasciate che vi aiuti.</p>
+                            <p style="margin-top: 10px;">• Un altro punto importante sono le utenze per energia, comunicazione, tasse comunali ed eventualmente l'apertura di un conto bancario. Se avete bisogno per attivazione o voltura, chiedete il mio supporto.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>🏛️ Orientamento nella burocrazia</h3>
+                        <p>Vi accompagno presso uffici pubblici per facilitare la comunicazione e risolvere le vostre pratiche.</p>
+                        <div class="example-box">
+                            <strong>Esempi concreti:</strong>
+                            <p>• Richiesta del codice fiscale italiano.</p>
+                            <p style="margin-top: 10px;">• Spiegazioni per comprendere meglio delle comunicazioni dell'Agenzia delle Entrate e gestione dei rapporti con i funzionari, con ricerca di un commercialista competente.</p>
+                            <p style="margin-top: 10px;">• Servizio di interpretariato presso i Carabinieri per la denuncia di un reato.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>💒 Matrimoni</h3>
+                        <p>Volete sposarvi in Italia?</p>
+                        <div class="example-box">
+                            <p>• Innanzitutto bisogna prendere contatto con l'ufficio di stato civile del comune che avete scelto. Vi diranno quali documenti sono necessari.</p>
+                            <p style="margin-top: 10px;">• La comunicazione con l'ufficio di stato civile riguarda la parte burocratica del vostro matrimonio. Volete anche organizzare una festa e cercate una bella location e un buon ristorante o servizio catering? Posso supportarvi o mettervi in contatto con wedding planner di fiducia.</p>
+                            <p style="margin-top: 10px;">• Durante la cerimonia faccio l'interprete per voi, affinché vengano rispettati i requisiti burocratici e voi, la persona che celebra il matrimonio e i vostri testimoni e ospiti capiate davvero tutto.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>📝 Servizi linguistici</h3>
+                        <p>Traduzioni professionali con specializzazione in testi giuridici: contratti, atti notarili, documentazione processuale. Eventuale asseverazione delle traduzioni in Tribunale (o dal notaio in casi di particolare urgenza). Servizi di interpretariato per incontri importanti.</p>
+                        <div class="example-box">
+                            <strong>Esempi concreti:</strong>
+                            <p>• Interpretariato in videoconferenze e traduzioni per un gruppo di persone in un procedimento penale in Italia, rendendo possibile la comunicazione con il difensore.</p>
+                            <p style="margin-top: 10px;">• Collaborazione pluriannuale con uno studio legale internazionale con sede a Milano per la traduzione di testi giuridici dall'italiano al tedesco.</p>
+                            <p style="margin-top: 10px;">• Traduzione di varie sentenze penali per conto di autorità giudiziarie italiane.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>🌍 Servizi per esigenze italiane in Germania</h3>
+                        <p>Non solo aiuto germanofoni in Italia, ma anche professionisti e aziende italiane che devono comunicare con autorità e istituzioni tedesche.</p>
+                        <div class="example-box">
+                            <strong>Esempi concreti:</strong>
+                            <p>• Assistenza a un avvocato italiano che doveva confrontarsi con banche e autorità tedesche per un'eredità giacente con riferimento italo-tedesco.</p>
+                            <p style="margin-top: 10px;">• Servizio di interpretariato in videoconferenza per conto di un'azienda italiana all'interno di una trattativa per l'acquisto di una società con sede in Germania.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <h2>Cosa dicono gli altri di me</h2>
+                <p class="testimonial-intro">Scrivete una recensione se avete lavorato con me. La pubblicherò qui.</p>
+                <div class="testimonial-box">
+                    <p class="testimonial-authors"><a href='recensione_magdalena.html' style='color: #0073a1; text-decoration: none;'>• Dr. Magdalena Manker e Dr. Michael Elpers (Berlino e Campagnatico)</a></p>
+                    <p class="testimonial-authors"><a href='recensione_friederike.html' style='color: #0073a1; text-decoration: none;'>• Dr. Friederike Nützenadel (Berlino e Campagnatico)</a></p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Blog Section -->
+        <section id="blog" class="blog-section">
+            <div class="container">
+                <h2>Blog</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <p style="color: #0073a1; font-weight: bold; font-size: 1.1rem;"><a href='blog.html' style='color: #0073a1; text-decoration: none;'>• Un microfono in chiesa</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <h2>Tariffe</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item" style="text-align: center;">
+                            <p style="font-size: 1.15rem; margin-bottom: 20px; color: #555;">Preventivi personalizzati e trasparenti per ogni progetto.</p>
+                            <p style="font-size: 1.1rem; color: #0073a1; font-weight: 500;">Parliamone senza impegno (al telefono o in videoconferenza).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2>Contatti</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong>📧 Email</strong>
+                            <a href="mailto:info@katjapasternak.eu">info@katjapasternak.eu</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>📱 Mobile / WhatsApp</strong>
+                            <a href="tel:+393483043854">+39 348 304 3854</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>📍 Indirizzo</strong>
+                            Via delle Piaggine 3
+
+                            58042 Campagnatico (GR), Italia
+                        </div>
+                        <div class="contact-item">
+                            <strong>🏛️ Associazione professionale</strong>
+                            Professionista di cui alla Legge n. 4 del 14 gennaio 2013
+
+                            Socia ordinaria AITI (tessera n. 210050)
+
+                            <a href="https://aiti.org/it/profilo/katja-pasternak" target="_blank" rel="noopener">Profilo AITI →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- GERMAN VERSION -->
+    <div id="lang-de" class="lang-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <img src="logo-hero.png" alt="Logo" class="hero-logo">
+                <h2><strong>Deutsche Hilfe</strong> für Ihre Anliegen in Italien</h2>
+                <p style="font-size: 1.3rem; margin-top: 10px; margin-bottom: 15px; font-weight: 500;">Assistenza tedesca per le vostre necessità in Italia</p>
+                <p>Ich löse Probleme, organisiere und übersetze für Deutschsprachige in Italien</p>
+                <p class="subtitle">TRADUZIONI GIURIDICHE (IT) · JURISTISCHE ÜBERSETZUNGEN (DE)</p>
+            </div>
+        </section>
+
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2>Über mich</h2>
+                <div class="about-layout">
+                    <div class="about-photo">
+                        <img src="katja.jpg" alt="Katja Christina Pasternak">
+                    </div>
+                    <div class="about-content">
+                        <p>Ich lebe seit fast 30 Jahren an verschiedenen Orten in Italien. Ich habe eine <strong>juristische Ausbildung in Deutschland abgeschlossen</strong> (1. und 2. Staatsexamen in Rechtswissenschaften).</p>
+                        <p>Während mehrerer Praktika in Rechtsanwaltskanzleien in Italien habe ich begonnen, mich auf die <strong>Übersetzung juristischer Texte</strong> zu spezialisieren, einem Bereich, in dem ich über langjährige Erfahrung verfüge. Ich bin <strong>Vollmitglied im italienischen Verband für Übersetzer und Dolmetscher AITI</strong>.</p>
+                        <p>Inzwischen unterstütze ich Deutschsprachige dabei, sich in Italien zurechtzufinden. Am besten vernetzt bin ich hier in der <strong>Maremma</strong>, wo ich seit rund 15 Jahren lebe, aber ich kann meine Fühler auch in andere Regionen ausstrecken.</p>
+                        <p>Mein Angebot umfasst alle Sprachdienstleistungen wie Übersetzen und Dolmetschen und bezieht sich darüber hinaus auf das Lösen ganz konkreter Probleme: Wie komme ich zu Kostenvoranschlägen von Handwerkern, welchem Makler kann ich vertrauen, wo finde ich einen guten Steuerberater?</p>
+                        <p>Dank meines beruflichen Netzwerks stehe ich mit qualifizierten Kollegen aus dem Bereich Übersetzung und Dolmetschen in Verbindung, vor allem in der Toskana, aber auch in anderen Regionen Italiens und mit anderen Sprachkombinationen. Damit kann ich auch über meine direkten Kompetenzen hinaus eine umfassende Unterstützung anbieten.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="container">
+                <h2>Meine Dienstleistungen</h2>
+                <p class="services-intro">Ich habe zahlreichen Kunden in komplexen Situationen geholfen. Hier sind einige Beispiele, wie ich auch Ihnen helfen kann:</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>🏠 Ihr Zuhause in Italien</h3>
+                        <p>Kauf und Verkauf von Immobilien laufen in verschiedenen Phasen ab, in die eine Reihe von Fachleuten eingebunden sind: Maklerbüros, Notare, Techniker wie Geometer oder Architekten.</p>
+                        <div class="example-box">
+                            <p>• Ich kann Sie bei der Immobiliensuche und den Verhandlungen unterstützen, die Kaufurkunden übersetzen und bei der Beurkundung dolmetschen.</p>
+                            <p style="margin-top: 10px;">• Soll eine Immobilie renoviert werden, sind neuerlich Geometer oder Architekten gefragt, aber auch Handwerker und die Beamten der Gemeindeverwaltung. Diese Fachleute müssen koordiniert werden - lassen Sie sich von mir helfen.</p>
+                            <p style="margin-top: 10px;">• Ein weiterer wichtiger Punkt sind die Versorgungsverträge für Strom, Kommunikation, kommunale Steuern und gegebenenfalls die Eröffnung eines Bankkontos. Wenn Sie Unterstützung bei der Anmeldung oder Ummeldung benötigen, nehmen Sie gerne Kontakt mit mir auf.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>🏛️ Orientierung im Behördendschungel</h3>
+                        <p>Ich begleite Sie zu öffentlichen Ämtern, um die Kommunikation zu erleichtern und Ihre Angelegenheiten zu klären.</p>
+                        <div class="example-box">
+                            <strong>Konkrete Beispiele:</strong>
+                            <p>• Beantragung der italienischen Steuer-Identifikationsnummer.</p>
+                            <p style="margin-top: 10px;">• Hilfe beim Verständnis von Mitteilungen der italienischen Steuerbehörde und bei der Betreuung von Behördenkontakten mit Suche nach einem kompetenten Steuerberater.</p>
+                            <p style="margin-top: 10px;">• Dolmetscherdienst bei den Carabinieri für die Anzeige einer Straftat.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>💒 Hochzeiten</h3>
+                        <p>Wollen Sie in Italien heiraten?</p>
+                        <div class="example-box">
+                            <p>• Zunächst muss Kontakt mit dem Standesamt Ihrer Wunschgemeinde aufgenommen werden. Man wird Ihnen sagen, welche Dokumente erforderlich sind.</p>
+                            <p style="margin-top: 10px;">• Die Kommunikation mit dem Standesamt betrifft den bürokratischen Teil Ihrer Hochzeit. Möchten Sie auch eine Feier ausrichten und suchen nach einer schönen Location und nach einem guten Restaurant oder Catering-Service? Ich kann Sie dabei unterstützen oder den Kontakt zu vertrauenswürdigen Hochzeitsplanern herstellen.</p>
+                            <p style="margin-top: 10px;">• Während der Trauung dolmetsche ich für Sie, damit die bürokratischen Erfordernisse erfüllt werden und Sie, die Person, die die Trauung durchführt, und Ihre Trauzeugen und Gäste wirklich alles verstehen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>📝 Sprachdienstleistungen</h3>
+                        <p>Professionelle Übersetzungen mit Spezialisierung auf juristische Texte: Verträge, notarielle Urkunden, Prozessunterlagen. Gegebenenfalls Beglaubigung der Übersetzungen bei Gericht (in besonders dringenden Fällen beim Notar). Dolmetscherdienste für wichtige Termine.</p>
+                        <div class="example-box">
+                            <strong>Konkrete Beispiele:</strong>
+                            <p>• Dolmetschen in Videokonferenzen und Übersetzungen für eine Gruppe von Personen in einem Strafverfahren in Italien, wodurch die Kommunikation mit dem Verteidiger ermöglicht wurde.</p>
+                            <p style="margin-top: 10px;">• Mehrjährige Zusammenarbeit mit einer internationalen Anwaltskanzlei mit Standort Mailand für die Übersetzung juristischer Texte vom Italienischen ins Deutsche.</p>
+                            <p style="margin-top: 10px;">• Übersetzung verschiedener Strafurteile im Auftrag italienischer Gerichte.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>🌍 Dienstleistungen für italienische Anliegen in Deutschland</h3>
+                        <p>Ich helfe nicht nur Deutschsprachigen in Italien, sondern auch italienischen Fachleuten und Unternehmen, die mit deutschen Behörden und Institutionen kommunizieren müssen.</p>
+                        <div class="example-box">
+                            <strong>Konkrete Beispiele:</strong>
+                            <p>• Unterstützung eines italienischen Anwalts, der sich wegen eines ruhenden Nachlasses mit deutsch-italienischem Bezug mit deutschen Banken und Behörden auseinandersetzen musste.</p>
+                            <p style="margin-top: 10px;">• Dolmetscherdienst per Videokonferenz für ein italienisches Unternehmen im Rahmen einer Verhandlung zum Erwerb einer Gesellschaft mit Sitz in Deutschland.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <div class="container">
+                <h2>Was andere über mich sagen</h2>
+                <p class="testimonial-intro">Schreiben Sie Ihre Bewertung, wenn Sie mit mir gearbeitet haben. Ich werde sie hier veröffentlichen.</p>
+                <div class="testimonial-box">
+                    <p class="testimonial-authors"><a href='recensione_magdalena.html' style='color: #0073a1; text-decoration: none;'>• Dr. Magdalena Manker und Dr. Michael Elpers (Berlin und Campagnatico)</a></p>
+                    <p class="testimonial-authors"><a href='recensione_friederike.html' style='color: #0073a1; text-decoration: none;'>• Dr. Friederike Nützenadel (Berlin und Campagnatico)</a></p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Blog Section -->
+        <section id="blog">
+            <div class="container">
+                <h2>Blog</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <p style="color: #0073a1; font-weight: bold; font-size: 1.1rem;"><a href='blog.html' style='color: #0073a1; text-decoration: none;'>• Mit dem Mikrofon in der Kirche</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Pricing Section -->
+        <section id="pricing">
+            <div class="container">
+                <h2>Preise</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item" style="text-align: center;">
+                            <p style="font-size: 1.15rem; margin-bottom: 20px; color: #555;">Individuelle und transparente Kostenvoranschläge für jedes Projekt.</p>
+                            <p style="font-size: 1.1rem; color: #0073a1; font-weight: 500;">Lassen Sie uns unverbindlich miteinander sprechen (am Telefon oder in Videokonferenz).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Kontakt</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <strong>📧 E-Mail</strong>
+                            <a href="mailto:info@katjapasternak.eu">info@katjapasternak.eu</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>📱 Mobiltelefon / WhatsApp</strong>
+                            <a href="tel:+393483043854">+39 348 304 3854</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>📍 Adresse</strong>
+                            Via delle Piaggine 3
+
+                            58042 Campagnatico (GR), Italien
+                        </div>
+                        <div class="contact-item">
+                            <strong>🏛️ Berufsverband</strong>
+                            Freiberuflerin gemäß Gesetz Nr. 4 vom 14. Januar 2013
+
+                            Vollmitglied im italienischen Verband für Übersetzer und Dolmetscher AITI (Mitgliedsnummer 210050)
+
+                            <a href="https://aiti.org/it/profilo/katja-pasternak" target="_blank" rel="noopener">AITI-Profil →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Katja Christina Pasternak · P.IVA/USt.-IdNr.: IT02042911202</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                <a href='legal.html' style='color: #e4d671; text-decoration: none;'>Note Legali e Privacy / Rechtliche Hinweise und Datenschutz</a>
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        // Funzione per lo scroll smooth alle sezioni
+        function scrollToSection(sectionId) {
+            // Chiudi il menu mobile prima di scrollare
+            const menu = document.getElementById('navbarMenu');
+            const hamburger = document.getElementById('hamburgerBtn');
+            if (menu && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+            
+            // Attendi un momento per permettere al menu di chiudersi
+            setTimeout(function() {
+                // Cerca la sezione dentro il div della lingua attiva
+                const activeLang = document.querySelector('.lang-content.active');
+                const section = activeLang ? activeLang.querySelector('#' + sectionId) : document.getElementById(sectionId);
+                if (section) {
+                    // Calcola dinamicamente l'altezza dell'header
+                    const header = document.querySelector('header');
+                    const headerHeight = header ? header.offsetHeight + 20 : 120;
+                    const elementPosition = section.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                    
+                    // Scrolla alla posizione corretta
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+        
+        // Funzione per toggle menu mobile
+        function toggleMenu() {
+            const menu = document.getElementById('navbarMenu');
+            const hamburger = document.getElementById('hamburgerBtn');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+        
+        // Funzione per cambiare lingua
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                if ((lang === 'de' && btn.textContent === 'DEUTSCH') || 
+                    (lang === 'it' && btn.textContent === 'ITALIANO')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
