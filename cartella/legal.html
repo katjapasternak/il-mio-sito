@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Legali e Privacy - Katja Christina Pasternak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0073a1 0%, #0090c7 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: #265075;
+            color: #e4d671;
+            border: 2px solid #265075;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: #e4d671;
+            color: #265075;
+            border-color: #e4d671;
+        }
+        
+        /* Legal Section */
+        .legal-section {
+            padding: 60px 0;
+        }
+        
+        .legal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .legal-content h2 {
+            color: #0073a1;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .legal-content h3 {
+            color: #0073a1;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .legal-content p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .legal-content ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .legal-content li {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .legal-content a {
+            color: #0073a1;
+            text-decoration: none;
+        }
+        
+        .legal-content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #265075;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 60px;
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 30px;
+            background: #0073a1;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #0090c7;
+            transform: translateY(-2px);
+            text-decoration: none !important;
+        }
+        
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+            
+            .header-content {
+                gap: 15px;
+            }
+            
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .lang-switcher {
+                margin-top: 10px;
+            }
+            
+            .legal-content {
+                padding: 30px 20px;
+            }
+            
+            .legal-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .legal-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .back-link {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo-header.png" alt="Logo" class="logo-img">
+                    <h1>Katja Christina Pasternak</h1>
+                </div>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="switchLang('de')">DEUTSCH</button>
+                    <button class="lang-btn" onclick="switchLang('it')">ITALIANO</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Legal Content -->
+    <section class="legal-section">
+        <div class="container">
+            <!-- Versione Italiana -->
+            <div id="lang-it" class="lang-content">
+                <div class="legal-content">
+                    <h2>Note Legali e Privacy</h2>
+                    
+                    <h3>1. Informazioni sul Titolare</h3>
+                    <p>
+                        <strong>Katja Christina Pasternak</strong><br>
+                        Via delle Piaggine 3<br>
+                        58042 Campagnatico (GR), Italia<br>
+                        P.IVA: IT02042911202<br>
+                        E-mail: <a href="/cdn-cgi/l/email-protection#cda4a3aba28da6acb9a7acbdacbeb9a8bfa3aca6e3a8b8"><span class="__cf_email__" data-cfemail="533a3d353c1338322739322332202736213d32387d3626">[email&#160;protected]</span></a><br>
+                        Tel.: +39 348 304 3854
+                    </p>
+                    
+                    <h3>2. Privacy (GDPR)</h3>
+                    
+                    <p><strong>Quali dati raccogliamo:</strong></p>
+                    <p>Questo sito è di natura puramente informativa e non raccoglie attivamente dati personali tramite moduli o cookie di profilazione. Tuttavia, per motivi tecnici, alcuni dati di navigazione vengono automaticamente rilevati dal server web:</p>
+                    <ul>
+                        <li>Indirizzo IP del visitatore</li>
+                        <li>Browser utilizzato e versione</li>
+                        <li>Data e ora dell'accesso</li>
+                        <li>Pagine visitate del sito</li>
+                    </ul>
+                    <p>Se ci contatta via e-mail, riceveremo il suo indirizzo e-mail e i dati contenuti nel messaggio.</p>
+                    
+                    <p><strong>Come utilizziamo i dati:</strong></p>
+                    <p>I dati di navigazione sono utilizzati esclusivamente per scopi tecnici e statistiche aggregate. Non vengono condivisi con terze parti né utilizzati per scopi commerciali o pubblicitari.</p>
+                    
+                    <p><strong>Cookie:</strong></p>
+                    <p>Questo sito utilizza solo cookie tecnici necessari per il funzionamento. Non utilizziamo cookie di profilazione o tracciamento.</p>
+                    
+                    <p><strong>I suoi diritti:</strong></p>
+                    <p>Lei ha diritto di accedere ai suoi dati, richiederne la rettifica o la cancellazione, limitarne il trattamento o opporsi al loro utilizzo. Per esercitare questi diritti, ci contatti all'indirizzo e-mail sopra indicato.</p>
+                    
+                    <h3>3. Responsabilità per i contenuti</h3>
+                    <p>I contenuti di questo sito sono forniti a scopo informativo. Non ci assumiamo alcuna responsabilità per l'accuratezza, la completezza o l'attualità delle informazioni pubblicate.</p>
+                    
+                    <h3>4. Link esterni</h3>
+                    <p>Questo sito può contenere link a siti web di terze parti. Non siamo responsabili per i contenuti o le politiche sulla privacy di questi siti esterni.</p>
+                    
+                    <h3>5. Copyright e proprietà intellettuale</h3>
+                    <p>Tutti i contenuti di questo sito (testi, immagini, grafiche, logo) sono di proprietà di Katja Christina Pasternak e protetti dalle leggi sul copyright. È vietata la riproduzione, anche parziale, senza autorizzazione scritta.</p>
+                    
+                    <p style="text-align: center; margin-top: 50px;">
+                        <a href="index.html" class="back-link">← Torna al sito</a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Versione Tedesca -->
+            <div id="lang-de" class="lang-content active">
+                <div class="legal-content">
+                    <h2>Rechtliche Hinweise und Datenschutz</h2>
+                    
+                    <h3>1. Angaben zum Verantwortlichen</h3>
+                    <p>
+                        <strong>Katja Christina Pasternak</strong><br>
+                        Via delle Piaggine 3<br>
+                        58042 Campagnatico (GR), Italien<br>
+                        USt.-IdNr.: IT02042911202<br>
+                        E-Mail: <a href="/cdn-cgi/l/email-protection#0f666169604f646e7b656e7f6e7c7b6a7d616e64216a7a"><span class="__cf_email__" data-cfemail="761f181019361d17021c1706170502130418171d581303">[email&#160;protected]</span></a><br>
+                        Tel.: +39 348 304 3854
+                    </p>
+                    
+                    <h3>2. Datenschutz (DSGVO)</h3>
+                    
+                    <p><strong>Welche Daten wir erheben:</strong></p>
+                    <p>Diese Website ist rein informativer Natur, und es erfolgt keine aktive Erhebung personenbezogener Daten durch Formulare oder Profiling-Cookies. Aus technischen Gründen werden jedoch automatisch einige Navigationsdaten vom Webserver erfasst:</p>
+                    <ul>
+                        <li>IP-Adresse des Besuchers</li>
+                        <li>Verwendeter Browser und Version</li>
+                        <li>Datum und Uhrzeit des Zugriffs</li>
+                        <li>Besuchte Seiten der Website</li>
+                    </ul>
+                    <p>Wenn Sie uns per E-Mail kontaktieren, erhalten wir Ihre E-Mail-Adresse und die in der Nachricht enthaltenen Daten.</p>
+                    
+                    <p><strong>Wie wir die Daten verwenden:</strong></p>
+                    <p>Die Navigationsdaten werden ausschließlich für technische Zwecke und aggregierte Statistiken verwendet. Sie werden nicht an Dritte weitergegeben und nicht für kommerzielle oder Werbezwecke genutzt.</p>
+                    
+                    <p><strong>Cookies:</strong></p>
+                    <p>Diese Website verwendet nur technische Cookies, die für den Betrieb notwendig sind. Wir verwenden keine Profiling- oder Tracking-Cookies.</p>
+                    
+                    <p><strong>Ihre Rechte:</strong></p>
+                    <p>Sie haben das Recht auf Auskunft über Ihre Daten, deren Berichtigung oder Löschung, Einschränkung der Verarbeitung oder Widerspruch gegen deren Verwendung. Um diese Rechte auszuüben, kontaktieren Sie uns unter der oben angegebenen E-Mail-Adresse.</p>
+                    
+                    <h3>3. Haftung für Inhalte</h3>
+                    <p>Die Inhalte dieser Website werden zu Informationszwecken bereitgestellt. Wir übernehmen keine Haftung für die Richtigkeit, Vollständigkeit oder Aktualität der veröffentlichten Informationen.</p>
+                    
+                    <h3>4. Externe Links</h3>
+                    <p>Diese Website kann Links zu Websites Dritter enthalten. Wir sind nicht verantwortlich für den Inhalt oder die Datenschutzrichtlinien dieser externen Websites.</p>
+                    
+                    <h3>5. Urheberrecht und geistiges Eigentum</h3>
+                    <p>Alle Inhalte dieser Website (Texte, Bilder, Grafiken, Logo) sind Eigentum von Katja Christina Pasternak und durch Urheberrechtsgesetze geschützt. Die Reproduktion, auch teilweise, ohne schriftliche Genehmigung ist untersagt.</p>
+                    
+                    <p style="text-align: center; margin-top: 50px;">
+                        <a href="index.html" class="back-link">← Zurück zur Website</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Katja Christina Pasternak · P.IVA/USt.-IdNr.: IT02042911202</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                if ((lang === 'de' && btn.textContent === 'DEUTSCH') || 
+                    (lang === 'it' && btn.textContent === 'ITALIANO')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
