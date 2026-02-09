@@ -1256,7 +1256,7 @@
             document.getElementById('lang-' + lang).classList.add('active');
             
             document.querySelectorAll('.lang-btn').forEach(function(btn) {
-                btn.classList.remove('active');
+emove('active');
             });
             
             document.querySelectorAll('.lang-btn').forEach(function(btn) {
@@ -1265,6 +1265,8 @@
                     btn.classList.add('active');
                 }
             });
+            
+            document.documentElement.lang = lang;
         }
     </script>
 </body>
