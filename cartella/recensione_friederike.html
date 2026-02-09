@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recensione - Katja Christina Pasternak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0073a1 0%, #0090c7 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: #265075;
+            color: #e4d671;
+            border: 2px solid #265075;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: #e4d671;
+            color: #265075;
+            border-color: #e4d671;
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 60px 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)),
+                        url('testimonianze.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .testimonial-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        
+        .testimonial-box p {
+            margin-bottom: 15px;
+            color: #333;
+            text-align: justify;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-box p:last-of-type {
+            margin-bottom: 0;
+        }
+        
+        .testimonial-authors {
+            color: #0073a1 !important;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 30px;
+            background: #0073a1;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: #0090c7;
+            transform: translateY(-2px);
+            text-decoration: none !important;
+        }
+        
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+        
+        .lang-content.active {
+            display: block;
+        }
+        
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+            
+            .header-content {
+                gap: 15px;
+            }
+            
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .content-section {
+                padding: 40px 20px;
+                background-attachment: scroll;
+            }
+            
+            .testimonial-box {
+                padding: 25px;
+            }
+            
+            .testimonial-authors {
+                font-size: 1rem;
+            }
+            
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .back-link {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo-header.png" alt="Logo" class="logo-img">
+                    <h1>Katja Christina Pasternak</h1>
+                </div>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="switchLang('de')">DEUTSCH</button>
+                    <button class="lang-btn" onclick="switchLang('it')">ITALIANO</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <!-- Italian Content -->
+            <div id="lang-it" class="lang-content">
+                <div class="testimonial-box">
+                    <p class="testimonial-authors">Dr. Friederike Nützenadel (Berlino e Campagnatico)</p>
+                    <p>La signora Pasternak ci ha accompagnato fin dall'inizio nell'acquisto della nostra casa nella Maremma a metà del 2022. Avendo completamente sottovalutato l'onere burocratico in Italia, siamo riusciti a portare a termine l'acquisto con successo solo grazie al supporto completo della signora Pasternak in loco. Oltre alle sue elevate qualità di interprete, è stato di inestimabile valore il fatto che la signora Pasternak sia anche giuridicamente competente e abbia potuto quindi consigliarci e supportarci in modo professionale nella stesura del contratto di compravendita. Ancora oggi rappresenta un supporto di inestimabile valore nella pianificazione dei lavori di ristrutturazione, nei colloqui con le diverse imprese edili, nell'ottenimento dei preventivi e nel monitoraggio dell'avanzamento dei lavori.</p>
+                    <p>In tutto questo tempo la collaborazione è sempre stata molto costruttiva ed estremamente piacevole! La signora Pasternak è estremamente impegnata e motivata e trova sempre una soluzione ai problemi grandi e piccoli. Grazie alla sua vasta rete di contatti ha sempre trovato gli interlocutori giusti per aiutarci nelle nostre esigenze.</p>
+                    <p>Possiamo raccomandare caldamente la signora Pasternak senza riserve, con lei si è davvero in ottime mani!</p>
+                    <p style="text-align: left; margin-top: 20px;">(Gennaio 2026)</p>
+                </div>
+                <p style="text-align: right; font-style: italic; color: #666; font-size: 0.9rem; margin-top: 15px;">[traduzione dal tedesco Katja Pasternak]</p>
+                <div style="text-align: center;">
+                    <a href="index.html" class="back-link">← Torna al sito</a>
+                </div>
+            </div>
+            
+            <!-- German Content -->
+            <div id="lang-de" class="lang-content active">
+                <div class="testimonial-box">
+                    <p class="testimonial-authors">Dr. Friederike Nützenadel (Berlin und Campagnatico)</p>
+                    <p>Frau Pasternak hat uns bei dem Erwerb unseres Hauses Mitte 2022 in der Maremma von Beginn auf begleitet. Da wir den bürokratischen Aufwand in Italien vollständig unterschätzt hatten, konnten wir nur durch die umfassende Unterstützung von Frau Pasternak vor Ort den Kauf erfolgreich durchführen. Neben der hohen dolmetscherischen Qualitäten war es von unschätzbarem Wert, dass Frau Pasternak auch juristisch versiert ist und uns so bei dem Aufsetzen des Kaufvertrages fachkundig beraten und unterstützen konnte. Bis heute ist sie eine unschätzbar wertvolle Unterstützung bei der Planung von Umbauarbeiten, den Gesprächen mit den unterschiedlichen Baugewerben sowie beim Einholen von Kostenvoranschlägen und der Überwachung der Baufortschritte.</p>
+                    <p>In all der Zeit war und ist die Zusammenarbeit jederzeit sehr konstruktiv und äußerst angenehm! Frau Pasternak ist extrem engagiert und motiviert und findet immer eine Lösung bei größeren oder auch kleineren Problemen. Durch ihr großes Netzwerk hat sie immer die passenden Ansprechpartner gefunden, um uns bei unseren Anliegen weiterzuhelfen.</p>
+                    <p>Wir können Frau Pasternak ohne Einschränkung wärmstens weiterempfehlen, bei ihr ist man wirklich sehr gut aufgehoben!</p>
+                    <p style="text-align: left; margin-top: 20px;">(Januar 2026)</p>
+                </div>
+                <div style="text-align: center;">
+                    <a href="index.html" class="back-link">← Zurück zur Website</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.lang-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                if ((lang === 'de' && btn.textContent === 'DEUTSCH') || 
+                    (lang === 'it' && btn.textContent === 'ITALIANO')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
